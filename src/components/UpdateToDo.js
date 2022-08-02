@@ -1,28 +1,30 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-const AddToDo = () => {
+const UpdateToDo = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
 
-    const addedToDo = {
+    const updatedData = {
       heading: e.target.heading.value,
       description: e.target.description.value,
       completed: e.target.completed.value,
       comments: e.target.comments.value,
     };
-    fetch(`http://localhost:5000/add`, {
-      method: "POST",
+
+    fetch(`http://localhost:5000/update/${id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(addedToDo),
+      body: JSON.stringify(updatedData),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log("Updated success");
       });
   };
 
@@ -31,9 +33,9 @@ const AddToDo = () => {
   };
   return (
     <div>
-      <h2 className="text-center uppercase text-4xl font-semibold text-[#38BDF8]">Add todo's</h2>
+      <h2 className="text-center uppercase text-4xl font-semibold text-[#38BDF8]">Update todo's</h2>
       <div className="border border-gray-700 bg-slate-300 p-6 rounded-lg shadow-lg mt-12 md:w-1/2 mx-auto text-slate-900">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleUpdate}>
           <label className="flex items-end justify-start">
             <span className="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm font-medium text-slate-700 w-48 md:w-52">
               Heading
@@ -102,4 +104,4 @@ const AddToDo = () => {
   );
 };
 
-export default AddToDo;
+export default UpdateToDo;

@@ -11,7 +11,7 @@ const Navbar = ({ children }) => {
         <Link to="/add">AddToDo</Link>
       </li>
       <li>
-        <Link to="/show">ShowToDo</Link>
+        <Link to="/update">UpdateToDo</Link>
       </li>
     </>
   );
