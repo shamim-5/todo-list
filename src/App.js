@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import AddToDo from "./components/AddToDo";
 import ShowToDo from "./components/ShowToDo";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/show" element={<ShowToDo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </Navbar>
     </div>
   );
