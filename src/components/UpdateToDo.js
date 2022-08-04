@@ -2,7 +2,6 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const UpdateToDo = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ const UpdateToDo = () => {
       comments: e.target.comments.value,
     };
 
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://young-plains-97381.herokuapp.com/update/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -5,7 +5,7 @@ const useToDo = () => {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000").then((res) => setTodo(res.data));
+    axios.get("https://young-plains-97381.herokuapp.com").then((res) => setTodo(res.data));
   }, [todo]);
   return [todo, setTodo];
 };

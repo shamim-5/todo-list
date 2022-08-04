@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import useToDo from "./hooks/useToDo";
 import { toast } from "react-toastify";
 
-
 const Completed = () => {
   const [todo] = useToDo();
   const { id } = useParams();
@@ -19,7 +18,7 @@ const Completed = () => {
       comments: e.target.comments.value,
     };
 
-    fetch(`http://localhost:5000/completed/${id}`, {
+    fetch(`https://young-plains-97381.herokuapp.com/completed/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -7,11 +7,23 @@ const Navbar = ({ children }) => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/success">CompletedTo-Do</Link>
+      <li
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          const anchor = document.querySelector("#complete-link");
+          anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+      >
+        <Link to="#complete-link">CompletedTo-Do</Link>
       </li>
-      <li>
-        <Link to="/pending">PendingTo-Do</Link>
+      <li
+        style={{ cursor: "pointer" }}
+        onClick={() => {
+          const anchor = document.querySelector("#pending-link");
+          anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+      >
+        <Link to="#pending-link">PendingTo-Do</Link>
       </li>
     </>
   );
@@ -20,7 +32,7 @@ const Navbar = ({ children }) => {
       <div className="drawer drawer-end text-white bg-[#0A1E33]">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
-          <div className="w-full navbar bg-[#0B1221]  px-9 lg:px-24">
+          <div className="w-full navbar sticky top-0 z-40  bg-[#0B1221]  px-9 lg:px-24">
             <div className="flex-1  ">
               <Link to="/">Say hII to To-Do</Link>
             </div>

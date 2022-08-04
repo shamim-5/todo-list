@@ -14,7 +14,7 @@ const AddToDo = () => {
       completed: e.target.completed.value,
       comments: e.target.comments.value,
     };
-    fetch(`http://localhost:5000/add`, {
+    fetch(`https://young-plains-97381.herokuapp.com/add`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

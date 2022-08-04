@@ -5,7 +5,7 @@ const AllCompleted = ({ handleUpdateButton, handleDelete, handleCompletedRadio, 
   const [todo] = useToDo();
 
   return (
-    <div>
+    <div id="complete-link">
       <h2 className="md:text-end text-center uppercase text-4xl font-semibold text-[#38BDF8] pt-4">Completed todo's</h2>
       <section className="flex md:flex-row justify-start flex-col py-4">
         {todo &&

@@ -12,7 +12,7 @@ const Home = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/${id}`, {
+    fetch(`https://young-plains-97381.herokuapp.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
