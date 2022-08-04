@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const UpdateToDo = () => {
   const { id } = useParams();
@@ -16,7 +18,7 @@ const UpdateToDo = () => {
     };
 
     fetch(`http://localhost:5000/update/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
@@ -24,7 +26,8 @@ const UpdateToDo = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Updated success");
+        toast("Updated success");
+        navigate("/");
       });
   };
 

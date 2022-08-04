@@ -1,14 +1,11 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import useToDo from "./hooks/useToDo";
+import { toast } from "react-toastify";
 
 const Home = () => {
-  const [todo, setTodo] = useState([]);
+  const [todo] = useToDo();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios.get("http://localhost:5000").then((res) => setTodo(res.data));
-  }, [todo]);
 
   const handleAddNowButton = () => {
     navigate("/add");
@@ -19,11 +16,15 @@ const Home = () => {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => toast.warn("To-Do Deleted"));
   };
 
   const handleUpdateButton = (id) => {
     navigate(`/update/${id}`);
+  };
+
+  const handleCompletedRadio = (id) => {
+    navigate(`completed/${id}`);
   };
   return (
     <div>
@@ -48,6 +49,19 @@ const Home = () => {
                       <small>Comments: {comments}</small>
                       <h3>Completed: {completed}</h3>
                       <div className="card-actions justify-around">
+                        <div onClick={() => handleCompletedRadio(_id)} className="cursor-pointer">
+                          {completed === "false" ? (
+                            <div className="flex justify-start items-center mt-3 mr-2 ">
+                              <input type="radio" name="radio-4" className="radio  radio-accent mr-2" />
+                              <h3>true</h3>
+                            </div>
+                          ) : (
+                            <div className="flex justify-start items-center mt-3 mr-2  ">
+                              <input type="radio" name="radio-4" className="radio  radio-secondary mr-2" />
+                              <h3>false</h3>
+                            </div>
+                          )}
+                        </div>
                         <button onClick={() => handleDelete(_id)} className="btn bg-transparent text-red-700">
                           Delete
                         </button>

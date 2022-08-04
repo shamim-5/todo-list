@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddToDo = () => {
   const navigate = useNavigate();
@@ -22,7 +23,8 @@ const AddToDo = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        toast.success("To-Do Successfully Added");
+        navigate("/");
       });
   };
 
