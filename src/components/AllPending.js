@@ -7,7 +7,7 @@ const AllPending = ({ handleUpdateButton, handleDelete, handleCompletedRadio }) 
   return (
     <div id="pending-link">
       <h2 className="md:text-start text-center uppercase text-4xl font-semibold text-[#38BDF8] pt-4">Pending todo's</h2>
-      <section className="flex md:flex-row justify-start flex-col  py-4">
+      <section className="flex flex-wrap md:flex-row justify-center flex-col  py-4">
         {todo &&
           todo.map((item) => {
             const { _id, heading, description, completed, comments } = item;
@@ -20,7 +20,9 @@ const AllPending = ({ handleUpdateButton, handleDelete, handleCompletedRadio }) 
                       <h2 className="card-title">Heading: {heading}</h2>
                       <p className="text-slate-300">Description: {description}</p>
                       <small className="text-slate-300">Comments: {comments}</small>
-                      <h3 className="text-slate-300 mt-2 font-semibold">Completed:<span className="text-red-600"> {completed}</span></h3>
+                      <h3 className="text-slate-300 mt-2 font-semibold">
+                        Completed:<span className="text-red-600"> {completed}</span>
+                      </h3>
                       <div className="card-actions justify-around">
                         <div onClick={() => handleCompletedRadio(_id)} className="cursor-pointer">
                           {completed === "false" ? (

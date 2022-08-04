@@ -7,7 +7,7 @@ const AllCompleted = ({ handleUpdateButton, handleDelete, handleCompletedRadio, 
   return (
     <div id="complete-link">
       <h2 className="md:text-end text-center uppercase text-4xl font-semibold text-[#38BDF8] pt-4">Completed todo's</h2>
-      <section className="flex md:flex-row justify-start flex-col py-4">
+      <section className="flex flex-wrap md:flex-row justify-center flex-col py-4">
         {todo &&
           todo.map((item) => {
             const { _id, heading, description, completed, comments } = item;
