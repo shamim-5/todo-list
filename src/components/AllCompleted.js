@@ -6,7 +6,7 @@ const AllCompleted = ({ handleUpdateButton, handleDelete, handleCompletedRadio, 
 
   return (
     <div>
-      <h2 className="md:text-end text-center uppercase text-4xl font-semibold text-[#38BDF8] pt-2">Completed todo's</h2>
+      <h2 className="md:text-end text-center uppercase text-4xl font-semibold text-[#38BDF8] pt-4">Completed todo's</h2>
       <section className="flex md:flex-row justify-start flex-col py-4">
         {todo &&
           todo.map((item) => {
@@ -14,12 +14,14 @@ const AllCompleted = ({ handleUpdateButton, handleDelete, handleCompletedRadio, 
             return (
               <div key={_id}>
                 {completed === "true" && (
-                  <div className="card shadow-xl m-3 bg-[#162030]">
+                  <div className="card shadow-xl m-4 bg-[#162030]">
                     <div className="card-body">
                       <h2 className="card-title">Heading: {heading}</h2>
-                      <p>Description: {description}</p>
-                      <small>Comments: {comments}</small>
-                      <h3>Completed: {completed}</h3>
+                      <p className="text-slate-300">Description: {description}</p>
+                      <small className="text-slate-300">Comments: {comments}</small>
+                      <h3 className="text-slate-300 mt-2 font-semibold">
+                        Completed: <span className="text-green-600">{completed}</span>
+                      </h3>
                       <div className="card-actions justify-around">
                         <div onClick={() => handleCompletedRadio(_id)} className="cursor-pointer">
                           {completed === "false" ? (
