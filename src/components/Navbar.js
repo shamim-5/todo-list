@@ -8,10 +8,10 @@ const Navbar = ({ children }) => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/add">AddToDo</Link>
+        <Link to="/success">CompletedTo-Do</Link>
       </li>
       <li>
-        <Link to="/update">UpdateToDo</Link>
+        <Link to="/pending">PendingTo-Do</Link>
       </li>
     </>
   );
@@ -21,7 +21,9 @@ const Navbar = ({ children }) => {
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col ">
           <div className="w-full navbar bg-[#0B1221]  px-9 lg:px-24">
-            <div className="flex-1  ">Say hII to To-Do</div>
+            <div className="flex-1  ">
+              <Link to="/">Say hII to To-Do</Link>
+            </div>
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal  ">{menuItems}</ul>
             </div>

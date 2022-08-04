@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import Completed from "./components/Completed";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AllCompleted from "./components/AllCompleted";
+import AllPending from "./components/AllPending";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<AddToDo />} />
+          <Route path="/success" element={<AllCompleted />} />
+          <Route path="/pending" element={<AllPending />} />
+
           <Route path="/update/:id" element={<UpdateToDo />} />
           <Route path="/completed/:id" element={<Completed />} />
           <Route path="*" element={<NotFound />} />
